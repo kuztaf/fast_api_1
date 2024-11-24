@@ -3,6 +3,14 @@ from models import Item
 
 app = FastAPI()
 
+
+# welcome message
+@app.get('/')
+def welcome():
+    return {'mensaje': 'Welcome to the items main app'}
+
+
+
 @app.post("/items/")
 async def create_item(item: Item):
     item_dict = item.dict()
